@@ -6,8 +6,18 @@ on:
   - push
 
 jobs:
+  # list all the environment variables in the GitHub Actions runner
   preflight-job:
     name: Preflight Step
     runs-on: ubuntu-latest
     steps:
       - run: env
+
+  print-github-info:
+    name: Print GitHub Actor and Workspace
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print GitHub Actor and Workspace
+        run: |
+          echo "GitHub Actor: $GITHUB_ACTOR"
+          echo "GitHub Workspace: $GITHUB_WORKSPACE"
